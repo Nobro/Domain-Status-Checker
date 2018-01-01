@@ -154,7 +154,7 @@ class DomainStatus(object):
         try:
             conn.request("HEAD", "/", headers=rand_headers)
             response = conn.getresponse()
-            if response.status in [400, 403, 404, 405, ]:
+            if response.status in [400, 403]:
                 status = self._status_code_helper(host_name)
             else:
                 status = '%i -- %s' % (response.status, response.reason)
